@@ -1,0 +1,24 @@
+{
+    "name": "mwender/email-generator",
+    "description": "A WordPress plugin for generating HTML emails for use in other email sending services.",
+    "repositories": [              
+        {
+            "type": "vcs",
+            "url": "https://github.com/makeitworkpress/wp-custom-fields.git"
+        }             
+    ],
+    "require": {
+        "php": ">=5.3",
+        "makeitworkpress/wp-custom-fields": "dev-master"
+    },
+    "license": "GPL",
+    "homepage": "https://github.com/name/repo/",
+    "authors": [ 
+        {
+            "name": "Michael Wender",
+            "email": "mwender@wenmarkdigital.com",
+            "homepage": "https://mwender.com"
+
+        } 
+    ]          
+}

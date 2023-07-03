@@ -1,0 +1,65 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "6b52d8f8f54e6b302fd2b2081764e58f",
+    "packages": [
+        {
+            "name": "makeitworkpress/wp-custom-fields",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/makeitworkpress/wp-custom-fields.git",
+                "reference": "ddfefb60ec800973aae4072f6f68d8be00f865b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/makeitworkpress/wp-custom-fields/zipball/ddfefb60ec800973aae4072f6f68d8be00f865b4",
+                "reference": "ddfefb60ec800973aae4072f6f68d8be00f865b4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MakeitWorkPress\\WP_Custom_Fields\\": "src"
+                }
+            },
+            "license": [
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "Michiel Tramper",
+                    "email": "michiel@makeitworkpress.com",
+                    "homepage": "https://www.makeitworkpress.com"
+                }
+            ],
+            "description": "WP Custom Fields allows you to add custom fields easily to options pages, post, taxonomy and usermeta and customizer fields.",
+            "homepage": "https://github.com/makeitworkpress/wp-custom-fields",
+            "support": {
+                "source": "https://github.com/makeitworkpress/wp-custom-fields/tree/master",
+                "issues": "https://github.com/makeitworkpress/wp-custom-fields/issues"
+            },
+            "time": "2023-02-14T15:53:13+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "makeitworkpress/wp-custom-fields": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.3"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
+}
