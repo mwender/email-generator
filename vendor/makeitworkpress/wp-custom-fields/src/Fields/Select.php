@@ -26,6 +26,7 @@ class Select implements Field {
         $object         = isset($field['object']) ? sanitize_key($field['object']) : '';
         $placeholder    = isset($field['placeholder']) && $field['placeholder'] ? esc_attr($field['placeholder']) : '';
         $source         = isset($field['source']) ? sanitize_text_field($field['source']) : '';
+        $posts_per_page = isset($field['posts_per_page']) ? sanitize_text_field($field['posts_per_page']) : -1;
         
         // Load the select2 script if we have a select field
         if( apply_filters('wp_custom_fields_select_field_js', true) && ! wp_script_is('select2-js', 'enqueued') ) {
@@ -53,7 +54,7 @@ class Select implements Field {
                 // Load an array of posts
                 if( ($object == 'posts' || $object == 'post') && $source ) {
 
-                    $posts = get_posts( ['ep_integrate' => true, 'post_type' => $source, 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC'] );
+                    $posts = get_posts( ['ep_integrate' => true, 'post_type' => $source, 'posts_per_page' => $posts_per_page, 'orderby' => 'title', 'order' => 'ASC'] );
                     
                     foreach( $posts as $post ) {
                         $options[$post->ID] = $post->post_title;
