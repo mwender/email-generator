@@ -7,5 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'MakeitWorkPress\\WP_Custom_Fields\\' => array($vendorDir . '/makeitworkpress/wp-custom-fields/src'),
-    'LightnCandy\\' => array($vendorDir . '/zordius/lightncandy/src'),
 );
