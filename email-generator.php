@@ -7,7 +7,7 @@
  * Author URI:      https://mwender.com
  * Text Domain:     email-generator
  * Domain Path:     /languages
- * Version:         1.0.1
+ * Version:         1.0.2
  *
  * @package         Email_Generator
  */
@@ -98,6 +98,8 @@ $fields->add( 'meta', [
               'object'  => 'post',
               'source'  => 'post',
               'posts_per_page'  => 100,
+              'orderby' => 'date',
+              'order' => 'DESC',
             ],
           ],
         ],
