@@ -9,7 +9,8 @@
     ],
     "require": {
         "php": ">=5.3",
-        "makeitworkpress/wp-custom-fields": "dev-master"
+        "makeitworkpress/wp-custom-fields": "dev-master",
+        "zordius/lightncandy": "dev-master"
     },
     "license": "GPL",
     "homepage": "https://github.com/name/repo/",

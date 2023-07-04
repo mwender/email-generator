@@ -11,12 +11,20 @@ class ComposerStaticInit3b49bb0261143087b36fdbfd6d807893
         array (
             'MakeitWorkPress\\WP_Custom_Fields\\' => 33,
         ),
+        'L' => 
+        array (
+            'LightnCandy\\' => 12,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'MakeitWorkPress\\WP_Custom_Fields\\' => 
         array (
             0 => __DIR__ . '/..' . '/makeitworkpress/wp-custom-fields/src',
+        ),
+        'LightnCandy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zordius/lightncandy/src',
         ),
     );
 
