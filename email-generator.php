@@ -7,7 +7,7 @@
  * Author URI:      https://mwender.com
  * Text Domain:     email-generator
  * Domain Path:     /languages
- * Version:         1.0.2
+ * Version:         1.1.0
  *
  * @package         Email_Generator
  */
@@ -32,9 +32,10 @@ function email_template_rendered_html(){
       $x = 1;
       foreach( $stored_post_ids as $stored_post_id ){
         $post_id = $stored_post_id['post'];
+        $thumbnail_size = ( 1 === $x )? 'large' : 'medium';
         $posts[$x] = [
           'post_title'      => get_the_title( $post_id ),
-          'featured_image'  => get_the_post_thumbnail_url( $post_id, 'medium' ),
+          'featured_image'  => get_the_post_thumbnail_url( $post_id, $thumbnail_size ),
           'permalink'       => get_permalink( $post_id ),
           'date'            => get_the_date( 'm/d/Y', $post_id ),
         ];

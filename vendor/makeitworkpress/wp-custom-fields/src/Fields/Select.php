@@ -27,8 +27,8 @@ class Select implements Field {
         $placeholder    = isset($field['placeholder']) && $field['placeholder'] ? esc_attr($field['placeholder']) : '';
         $source         = isset($field['source']) ? sanitize_text_field($field['source']) : '';
         $posts_per_page = isset($field['posts_per_page']) ? sanitize_text_field($field['posts_per_page']) : -1;
-        $orderby         = isset($field['orderby']) ? sanitize_text_field($field['orderby']) : 'title';
-        $order         = isset($field['order']) ? sanitize_text_field($field['order']) : 'ASC';
+        $orderby        = isset($field['orderby']) ? sanitize_text_field($field['orderby']) : 'title';
+        $order          = isset($field['order']) ? sanitize_text_field($field['order']) : 'ASC';
         
         // Load the select2 script if we have a select field
         if( apply_filters('wp_custom_fields_select_field_js', true) && ! wp_script_is('select2-js', 'enqueued') ) {
