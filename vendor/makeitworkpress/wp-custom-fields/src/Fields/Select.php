@@ -29,6 +29,9 @@ class Select implements Field {
         $posts_per_page = isset($field['posts_per_page']) ? sanitize_text_field($field['posts_per_page']) : -1;
         $orderby        = isset($field['orderby']) ? sanitize_text_field($field['orderby']) : 'title';
         $order          = isset($field['order']) ? sanitize_text_field($field['order']) : 'ASC';
+
+        $email_template_options = get_option( 'email_template_options' );
+        $excluded_categories = $email_template_options['post_selector_excludes'];
         
         // Load the select2 script if we have a select field
         if( apply_filters('wp_custom_fields_select_field_js', true) && ! wp_script_is('select2-js', 'enqueued') ) {
@@ -55,8 +58,11 @@ class Select implements Field {
 
                 // Load an array of posts
                 if( ($object == 'posts' || $object == 'post') && $source ) {
+                    $get_posts_args = [ 'ep_integrate' => true, 'post_type' => $source, 'posts_per_page' => $posts_per_page, 'orderby' => $orderby, 'order' => $order ];
+                    if( $excluded_categories && is_array( $excluded_categories ) && 0 < count( $excluded_categories ) )
+                        $get_posts_args['category__not_in'] = $excluded_categories;
 
-                    $posts = get_posts( ['ep_integrate' => true, 'post_type' => $source, 'posts_per_page' => $posts_per_page, 'orderby' => $orderby, 'order' => $order] );
+                    $posts = get_posts( $get_posts_args );
                     
                     foreach( $posts as $post ) {
                         $options[$post->ID] = $post->post_title;
@@ -80,7 +86,7 @@ class Select implements Field {
                     
                 }                
 
-                wp_cache_add('wpc_select_field_cache_' . $object . $source, $options);
+                wp_cache_add( 'wpc_select_field_cache_' . $object . $source, $options, null, 300 );
                 
             }
 
