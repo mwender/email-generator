@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/makeitworkpress/wp-custom-fields.git",
-                "reference": "ddfefb60ec800973aae4072f6f68d8be00f865b4"
+                "reference": "beb6d180623f94ebef0364906e990620ef212328"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/makeitworkpress/wp-custom-fields/zipball/ddfefb60ec800973aae4072f6f68d8be00f865b4",
-                "reference": "ddfefb60ec800973aae4072f6f68d8be00f865b4",
+                "url": "https://api.github.com/repos/makeitworkpress/wp-custom-fields/zipball/beb6d180623f94ebef0364906e990620ef212328",
+                "reference": "beb6d180623f94ebef0364906e990620ef212328",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                 "source": "https://github.com/makeitworkpress/wp-custom-fields/tree/master",
                 "issues": "https://github.com/makeitworkpress/wp-custom-fields/issues"
             },
-            "time": "2023-02-14T15:53:13+00:00"
+            "time": "2024-07-06T12:24:01+00:00"
         }
     ],
     "packages-dev": [],
@@ -61,5 +61,5 @@
         "php": ">=5.3"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

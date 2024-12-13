@@ -47,11 +47,13 @@ class Framework extends Base {
         $this->params = wp_parse_args( $this->params, $defaults );
         
         // Set the folder for the framework, assuming it will be within wp-content.
-        $folder = wp_normalize_path( substr( dirname(__FILE__), strpos(__FILE__, 'wp-content') + strlen('wp-content') ) );      
+        $root_dir = dirname(__DIR__, 1);
+        $is_in_plugin = str_contains($root_dir, WP_PLUGIN_DIR) ? true : false; 
+        $root_path = $is_in_plugin ? substr($root_dir, strpos($root_dir, '/plugins')) : substr($root_dir, strpos($root_dir, '/themes'));
         
         // Define Constants
-        defined( 'WP_CUSTOM_FIELDS_ASSETS_URL' ) or define( 'WP_CUSTOM_FIELDS_ASSETS_URL', content_url() . $folder . '/assets/' );
-        defined( 'WP_CUSTOM_FIELDS_PATH' ) or define( 'WP_CUSTOM_FIELDS_PATH', plugin_dir_path( __FILE__ ) );
+        defined( 'WP_CUSTOM_FIELDS_ASSETS_URL' ) or define( 'WP_CUSTOM_FIELDS_ASSETS_URL', content_url() . $root_path . '/public/' );
+        defined( 'WP_CUSTOM_FIELDS_PATH' ) or define( 'WP_CUSTOM_FIELDS_PATH', $root_dir . '/src/' );
         defined( 'GOOGLE_MAPS_KEY' ) or define( 'GOOGLE_MAPS_KEY', $this->params['google_maps_key'] );
         
         // Our default frame types
@@ -304,8 +306,8 @@ class Framework extends Base {
         // Checks if everything is there
         foreach( ['equation', 'source', 'value'] as $key ) {
             if( ! isset($dependency[$key]) || ! $dependency[$key] ) {
-                return $class;    
-            }           
+                return $class;
+            }
         }
 
         // Let's find the field we're looking for
@@ -314,7 +316,7 @@ class Framework extends Base {
                 if( $field['id'] == $dependency['source'] ) {
                     $source_field = $field;
                     break;
-                }    
+                }
             }
         }
 
@@ -330,7 +332,7 @@ class Framework extends Base {
             if( $dependency['value'] == $value || (is_array($value) && in_array($dependency['value'], $value)) ) {
                 $class = ' active';
             }
-        } else if( $dependency['equation'] == '!=' ) {
+        } elseif( $dependency['equation'] == '!=' ) {
             if( $dependency['value'] != $value || (is_array($value) && ! in_array($dependency['value'], $value)) ) {
                 $class = ' active';
             }
@@ -338,6 +340,6 @@ class Framework extends Base {
 
         return $class;
 
-    }    
+    }
        
 }
